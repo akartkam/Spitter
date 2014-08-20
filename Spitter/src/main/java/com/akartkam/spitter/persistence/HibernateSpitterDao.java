@@ -16,11 +16,11 @@ public class HibernateSpitterDao implements SpitterDao {
 
 	@Autowired
 	public HibernateSpitterDao(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory; // Конструирует DAO
+		this.sessionFactory = sessionFactory; // 
 	}
 
-	private Session currentSession() { // �?звлекает текущий
-		return sessionFactory.getCurrentSession(); // сеанс из фабрики
+	private Session currentSession() { // 
+		return sessionFactory.getCurrentSession(); 
 	}
   
   public void addSpitter(Spitter spitter) {
@@ -36,7 +36,7 @@ public class HibernateSpitterDao implements SpitterDao {
   }
 
   public List<Spittle> getRecentSpittle() {
-    return currentSession().createQuery("from Splitte").list(); // this isn't right...just a placeholder for now
+    return currentSession().createQuery("from Spittle").list(); // this isn't right...just a placeholder for now
   }
 
   public void saveSpittle(Spittle spittle) {

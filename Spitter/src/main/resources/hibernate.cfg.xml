@@ -5,6 +5,7 @@
 
 <hibernate-configuration>
 	<session-factory>
-		<mapping class="net.schastny.contactmanager.domain.Contact" />
+		<mapping class="com.akartkam.spitter.domain.Spitter" />
+		<mapping class="com.akartkam.spitter.domain.Spittle" />
 	</session-factory>
 </hibernate-configuration>

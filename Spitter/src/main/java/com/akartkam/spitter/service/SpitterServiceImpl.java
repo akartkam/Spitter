@@ -24,7 +24,7 @@ public class SpitterServiceImpl implements SpitterService {
     spitterDao.saveSpittle(spittle);
   }
 
-  @Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+  @Transactional(propagation=Propagation.REQUIRED, readOnly=true)
   public List<Spittle> getRecentSpittles(int count) {
     List<Spittle> recentSpittles = 
         spitterDao.getRecentSpittle();
@@ -43,7 +43,7 @@ public class SpitterServiceImpl implements SpitterService {
     }
   }
   
-  @Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+  @Transactional(propagation=Propagation.REQUIRED, readOnly=true)
   public Spitter getSpitter(long id) {
     return spitterDao.getSpitterById(id);
   }
