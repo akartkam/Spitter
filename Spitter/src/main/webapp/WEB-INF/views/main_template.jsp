@@ -12,7 +12,7 @@
     <div id="container">
       <a href="<s:url value="/home" />"><img 
           src="<s:url value="/resources" />/images/spitter_logo_50.png" 
-          border="0"/></a>
+          border="1"/></a>
       <div id="top">
         <t:insertAttribute name="top" /> <!--<co id="co_tile_top" />-->
       </div>

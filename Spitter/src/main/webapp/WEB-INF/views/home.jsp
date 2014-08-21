@@ -32,7 +32,7 @@
           <c:out value="${spittle.spitter.username}" /></a>
           - <c:out value="${spittle.text}" /><br/>          
          <small><fmt:formatDate value="${spittle.when}" 
-	                            pattern="hh:mma MMM d, yyyy" /></small>
+	                            pattern="dd.MM.yyyy  hh:mm" /></small>
       </span></li>
     </c:forEach>
   </ol>
