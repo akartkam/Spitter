@@ -7,6 +7,7 @@ import static org.mockito.Mockito.*;
 
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.InjectMocks;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +30,7 @@ public class HomeControllerTest {
     List<Spittle> expectedSpittles = 
       asList(new Spittle(), new Spittle(), new Spittle());
     
-    //SpitterService spitterService = mock(SpitterService.class);//<co id="co_mockSpitterService"/>
+    SpitterService spitterService = mock(SpitterService.class);//<co id="co_mockSpitterService"/>
 
     when(spitterService.getRecentSpittles(DEFAULT_SPITTLES_PER_PAGE)).
         thenReturn(expectedSpittles);
@@ -41,7 +42,7 @@ public class HomeControllerTest {
     String viewName = controller.showHomePage(model); //<co id="co_callShowHomePage"/>
     
     assertEquals("home", viewName);
-
+    
     assertSame(expectedSpittles, model.get("spittles")); //<co id="co_assertResults"/>
     verify(spitterService).getRecentSpittles(DEFAULT_SPITTLES_PER_PAGE);
   }
