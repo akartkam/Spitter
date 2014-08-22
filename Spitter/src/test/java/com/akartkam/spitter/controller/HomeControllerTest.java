@@ -31,7 +31,7 @@ public class HomeControllerTest {
     List<Spittle> expectedSpittles = 
       asList(new Spittle(), new Spittle(), new Spittle());
     
-    SpitterService spitterService = mock(SpitterService.class);//<co id="co_mockSpitterService"/>
+    //SpitterService spitterService = mock(SpitterService.class);//<co id="co_mockSpitterService"/>
 
     when(spitterService.getRecentSpittles(DEFAULT_SPITTLES_PER_PAGE)).
         thenReturn(expectedSpittles);

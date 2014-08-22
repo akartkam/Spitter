@@ -43,16 +43,16 @@ public class HibernateSpitterDao implements SpitterDao {
 	  currentSession().save(spittle);
   }
 
-  public List<Spittle> getSpittlesForSpitter(
-          Spitter spitter) {
-    // TODO Auto-generated method stub
-    return null;
+  @SuppressWarnings("unchecked")
+  public List<Spittle> getSpittlesForSpitter(Spitter spitter) {
+	return currentSession().createQuery("from Spittle s where s.spitter.username = :username").
+                setParameter("username", spitter.getUsername()).list();
   }
   
 
   public Spitter getSpitterByUsername(String username) {
-    // TODO Auto-generated method stub
-    return null;
+    return (Spitter) currentSession().createQuery("from Spitter where username=:username").
+                     setParameter("username", username).uniqueResult();
   }
 
   public void deleteSpittle(long id) {

@@ -29,7 +29,7 @@ public class Spittle implements Serializable {
   private Spitter spitter;
   private String text;
   
-  @DateTimeFormat(pattern="hh:mma MMM d, YYYY")
+  @DateTimeFormat(pattern="dd.MM.yyyy hh:mm")
   private Date when;
 
   public Spittle() {
