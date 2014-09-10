@@ -34,7 +34,7 @@ public class Spitter implements Serializable {
   @Size(min=3, max=20, message=
       "Username must be between 3 and 20 characters long.") //<co id="co_enforceSize"/> 
   @Pattern(regexp="^[a-zA-Z0-9]+$",
-          message="Username must be alphanumeric with no spaces")  //<co id="co_noSpaces"/>
+          message="{Spitter.size.username}")  //<co id="co_noSpaces"/>
   private String username;  
   
   @Size(min=6, max=20,
