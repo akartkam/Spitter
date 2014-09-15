@@ -18,9 +18,10 @@
                       value="${spittle.spitter.username}" />
       </s:url>
 
+
       <li><span class="spittleListImage">
-        <img src=
-          "http://s3.amazonaws.com/spitterImages/${spittle.spitter.id}.jpg"
+<!--  "http://s3.amazonaws.com/spitterImages/${spittle.spitter.id}.jpg" -->
+        <img src=<s:url value="/resources"/>/${spittle.spitter.id}.jpg
                width="48"
                border="0" 
                align="middle" 
