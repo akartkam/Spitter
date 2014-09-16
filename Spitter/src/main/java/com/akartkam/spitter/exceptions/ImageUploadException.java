@@ -1,4 +1,4 @@
-package com.akartkam.spitter.controller;
+package com.akartkam.spitter.exceptions;
 
 @SuppressWarnings("serial")
 public class ImageUploadException extends RuntimeException {

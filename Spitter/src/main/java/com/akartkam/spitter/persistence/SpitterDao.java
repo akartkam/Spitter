@@ -25,4 +25,6 @@ public interface SpitterDao {
   Spittle getSpittleById(long id);
   
   List<Spitter> findAllSpitters();
+  
+  List<Spitter> findAllSpittersWithSpittles();
 }

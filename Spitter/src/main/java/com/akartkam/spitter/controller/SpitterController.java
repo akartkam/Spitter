@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.akartkam.spitter.domain.Spitter;
+import com.akartkam.spitter.exceptions.ImageUploadException;
 import com.akartkam.spitter.service.SpitterService;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;

@@ -21,4 +21,6 @@ public interface SpitterService {
   void deleteSpittle(long id);
   
   List<Spitter> getAllSpitters();
+  
+  List<Spitter> getAllSpittersWithSpittles();
 }

@@ -67,4 +67,8 @@ public class HibernateSpitterDao implements SpitterDao {
     // TODO Auto-generated method stub
     return null;
   }
+  
+  public List<Spitter> findAllSpittersWithSpittles() {
+	  return currentSession().createQuery("from Spitter st where exists (from Spittle sl where sl.spitter.id=st.id)").list(); 
+  }
 }

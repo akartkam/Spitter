@@ -29,7 +29,9 @@
 	</beans:bean>
 	
 	<beans:bean class=
-		"org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>	
+		"org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+		<beans:property name="order" value="2"/>
+	</beans:bean>		
 	
 	<beans:bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 	     <beans:property name="definitions">
@@ -38,6 +40,11 @@
 	       </beans:list>
 	     </beans:property>
     </beans:bean>
+    
+   <beans:bean id="otherResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
+        <beans:property name="order" value="1"/>
+        <beans:property name="location" value="/WEB-INF/views/other-views.xml"/>
+    </beans:bean>    
 
 	<!-- Эти штуки нужны для возможности переключения локализации прямо в jsp
 	<beans:bean id="localeChangeInterceptor"
@@ -81,6 +88,8 @@
 	
     <util:properties id="spitterProperties" 
                     location="classpath:spitter.properties"/>	
+                    
+                    
 	
 	<!-- Файл с настройками контроллеров -->
 	<beans:import resource="controllers.xml" />

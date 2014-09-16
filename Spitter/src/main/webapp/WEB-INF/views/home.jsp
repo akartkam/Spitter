@@ -37,4 +37,7 @@
       </span></li>
     </c:forEach>
   </ol>
+  <div align="center">
+        <h3><a href=<s:url value="/downloadSpittersWithSpittles.xls"/>>Export current Spitters to Excel Document</a></h3>
+  </div>
 </div>

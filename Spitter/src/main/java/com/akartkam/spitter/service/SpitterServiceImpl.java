@@ -72,11 +72,17 @@ public class SpitterServiceImpl implements SpitterService {
   public List<Spitter> getAllSpitters() {
     return spitterDao.findAllSpitters();
   }
+  
+  public Spittle getSpittleById(long id) {
+	    return spitterDao.getSpittleById(id);
+	  }
+  
+  public List<Spitter> getAllSpittersWithSpittles(){
+	  return spitterDao.findAllSpittersWithSpittles();  
+  }
 
   @Autowired
   SpitterDao spitterDao;
 
-  public Spittle getSpittleById(long id) {
-    return spitterDao.getSpittleById(id);
-  }
+  
 }
