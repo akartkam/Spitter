@@ -7,6 +7,11 @@
 						http://www.springframework.org/schema/security
 						http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 	<!-- Здесь располагаются элементы без префикса security: " -->
+	
+	<beans:bean id="encoder" 
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<beans:constructor-arg name="strength" value="11" />
+    </beans:bean>
 
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/favicon.ico" access="isAnonymous()" /> 
@@ -18,16 +23,24 @@
 		<form-login login-processing-url="/static/j_spring_security_check"
 			login-page="/login" authentication-failure-url="/login?login_error=t"/> 
 		<logout logout-url="/static/j_spring_security_logout"/>
+	 <!--  	<csrf />  -->
 	</http>	
 	
 	<authentication-manager>
 		<authentication-provider>
-			<user-service>
+		<!--  	<user-service>
 				<user name="user" password="pass" authorities="ROLE_SPITTER" />
 				<user name="admin" password="pass" authorities="ROLE_ADMIN" />
 				<user name="user1" password="1111" authorities="ROLE_USER" />
 				<user name="user2" password="2222" disabled="true" authorities="ROLE_USER" />
-			</user-service>
+			</user-service>   -->
+			
+	    <jdbc-user-service id="userService"  data-source-ref="dataSource"
+            users-by-username-query=
+                "select username, password, true from spitter where username=?"
+            authorities-by-username-query=
+                "select username,'ROLE_SPITTER' from spitter where username=?" />
+	    <password-encoder ref="encoder" />
 		</authentication-provider>
 	</authentication-manager>	
 

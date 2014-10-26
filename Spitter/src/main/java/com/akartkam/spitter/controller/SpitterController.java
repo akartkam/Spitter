@@ -7,7 +7,9 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 
 import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -30,6 +32,9 @@ public class SpitterController {
 
 	@Value("#{spitterProperties['spitter.webRootPath']}")
 	private String webRootPath;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@Inject
 	public SpitterController(SpitterService spitterService) {
@@ -44,6 +49,8 @@ public class SpitterController {
 		if (bindingResult.hasErrors()) { // Проверка ошибок
 			return "spitters/edit";
 		}
+		//шифрование пароля
+		spitter.setPassword(passwordEncoder.encode(spitter.getPassword()));
 		spitterService.saveSpitter(spitter); // Сохранить объект Spitter
 
 		try {
